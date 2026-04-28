@@ -4,15 +4,30 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 #---------------------Aufgabe 1 ------------------------------------
 def compute_r2d2_population(steps: int) -> tuple[int,int,int]:
-    """
-        Computes the r2d2 population for the given step amount
-    :param steps: amount of steps to compute the population (e.g.: 5)
-    :return: tuple of childs adults and old r2d2
-    """
-    return (0,0,0)
+    import math;
 
+    Junge = 10
+    Erwachsene = 10
+    Alte = 10
 
+    NeueJunge = None
+    NeueErwachsene = None
+    NeueAlte = None
 
+    for i in range(steps):
+        if (steps == 1):
+            return (Junge, Erwachsene, Alte)
+        elif (i == steps - 1):
+            return (NeueJunge, NeueErwachsene, NeueAlte)
+            break
+
+        NeueJunge = Erwachsene * 4 + Alte * 2
+        NeueErwachsene = math.floor(Junge / 2)
+        NeueAlte = math.floor(Erwachsene / 3)
+
+        Junge = NeueJunge
+        Erwachsene = NeueErwachsene
+        Alte = NeueAlte
 #---------------------Aufgabe 2 Quantitativer Angebotsvergleich------------------------------
 #IMPLEMENT YOUR SOLUTION FOR THE Quantitativer Angebotsvergleich HERE
 
