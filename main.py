@@ -15,12 +15,6 @@ def compute_r2d2_population(steps: int) -> tuple[int,int,int]:
     NeueAlte = None
 
     for i in range(steps):
-        if (steps == 1):
-            return (Junge, Erwachsene, Alte)
-        elif (i == steps - 1):
-            return (NeueJunge, NeueErwachsene, NeueAlte)
-            break
-
         NeueJunge = Erwachsene * 4 + Alte * 2
         NeueErwachsene = math.floor(Junge / 2)
         NeueAlte = math.floor(Erwachsene / 3)
@@ -28,6 +22,12 @@ def compute_r2d2_population(steps: int) -> tuple[int,int,int]:
         Junge = NeueJunge
         Erwachsene = NeueErwachsene
         Alte = NeueAlte
+
+        if (steps == 1):
+            return (Junge, Erwachsene, Alte)
+        elif (i == steps - 1):
+            return (NeueJunge, NeueErwachsene, NeueAlte)
+            break
 #---------------------Aufgabe 2 Quantitativer Angebotsvergleich------------------------------
 #IMPLEMENT YOUR SOLUTION FOR THE Quantitativer Angebotsvergleich HERE
 
